@@ -32,7 +32,7 @@ class FeedbackController extends Controller
 
 		if ($model->load(Yii::$app->getRequest()->post()) && $model->feedback()) {
 			Yii::$app->session->setFlash('success', Yii::t('feedback', 'Your message was successfully sent.'));
-			return $this->refresh();
+			return $this->render('empty');
 		}
 
 		return $this->render('index', [
