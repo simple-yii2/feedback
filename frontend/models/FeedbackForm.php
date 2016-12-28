@@ -59,7 +59,7 @@ class FeedbackForm extends Model
 			'phone' => Yii::t('feedback', 'Phone'),
 			'email' => Yii::t('feedback', 'E-mail'),
 			'message' => Yii::t('feedback', 'Message'),
-			'verificationCode' => Yii::t('feedback', 'Verification code'),
+			'verificationCode' => Yii::t('feedback', 'Code'),
 		];
 	}
 

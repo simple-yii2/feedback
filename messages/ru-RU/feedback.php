@@ -13,7 +13,7 @@ return [
 	'Phone' => 'Телефон',
 	'E-mail' => 'E-mail',
 	'Message' => 'Сообщение',
-	'Verification code' => 'Проверочный код',
+	'Code' => 'Код',
 
 	// 'Create' => 'Добавить',
 	'Save' => 'Сохранить',
