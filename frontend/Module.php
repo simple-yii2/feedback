@@ -2,28 +2,11 @@
 
 namespace cms\feedback\frontend;
 
-use Yii;
+use cms\components\BaseModule;
 
 /**
  * Frontend module
  */
-class Module extends \yii\base\Module
+class Module extends BaseModule
 {
-
-	/**
-	 * @inheritdoc
-	 */
-	public function init()
-	{
-		parent::init();
-
-		if (!isset(Yii::$app->i18n->translations['feedback'])) {
-			Yii::$app->i18n->translations['feedback'] = [
-				'class' => 'yii\i18n\PhpMessageSource',
-				'sourceLanguage' => 'en-US',
-				'basePath' => dirname(__DIR__) . '/messages',
-			];
-		}
-	}
-
 }
