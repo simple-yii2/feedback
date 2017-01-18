@@ -36,6 +36,7 @@ class Feedback extends Widget
 	{
 		parent::init();
 
+		$this->registerTranslation();
 		$this->initModel();
 		$this->processModel();
 	}
@@ -46,6 +47,15 @@ class Feedback extends Widget
 	public function run()
 	{
 		$this->renderForm();
+	}
+
+	/**
+	 * Register translation
+	 * @return void
+	 */
+	private function registerTranslation()
+	{
+		\cms\feedback\frontend\Module::cmsTranslation();
 	}
 
 	/**
@@ -75,10 +85,13 @@ class Feedback extends Widget
 	private function processModel()
 	{
 		$model = $this->_model;
+		$app = Yii::$app;
 
-		if ($model->load(Yii::$app->getRequest()->post()) && $model->feedback()) {
-			Yii::$app->session->setFlash('success', Yii::t('feedback', 'Your message was successfully sent.'));
-			$this->initModel();
+		if ($model->load($app->getRequest()->post()) && $model->feedback()) {
+			$app->getSession()->setFlash('success', Yii::t('feedback', 'Your message was successfully sent.'));
+
+			if ($app->getResponse()->refresh())
+				$app->end();
 		}
 	}
 
