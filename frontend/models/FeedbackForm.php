@@ -4,6 +4,9 @@ namespace cms\feedback\frontend\models;
 
 use Yii;
 use yii\base\Model;
+use yii\web\NotFoundHttpException;
+
+use cms\feedback\common\models\Feedback;
 
 class FeedbackForm extends Model
 {
@@ -34,15 +37,15 @@ class FeedbackForm extends Model
 	public $verificationCode;
 
 	/**
-	 * @var cms\feedback\common\models\Feedback
+	 * @var Feedback
 	 */
 	private $_object;
 
 	/**
 	 * @inheritdoc
-	 * @param cms\feedback\common\models\Feedback $object 
+	 * @param Feedback $object 
 	 */
-	public function __construct(\cms\feedback\common\models\Feedback $object, $config = [])
+	public function __construct(Feedback $object, $config = [])
 	{
 		$this->_object = $object;
 
