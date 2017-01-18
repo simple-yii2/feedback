@@ -17,7 +17,7 @@ class FeedbackController extends Controller
 	 */
 	public function actionIndex()
 	{
-		if (Feedback::find()->count == 0)
+		if (Feedback::find()->count() == 0)
 			throw new NotFoundHttpException(Yii::t('yii', 'Page not found.'));
 
 		return $this->render('index');
