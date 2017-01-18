@@ -84,10 +84,12 @@ class FeedbackForm extends Model
 		if (!$this->validate())
 			return false;
 
+		$view = dirname(dirname(__DIR__)) . '/mail/feedback.php';
+
 		$message = Yii::$app->mailer->compose()
 			->setTo($this->_object->email)
 			->setSubject(Yii::t('feedback', 'New message'))
-			->setHtmlBody(Yii::$app->controller->renderPartial('mail', ['model' => $this]));
+			->setHtmlBody(Yii::$app->getView()->renderFile($view, ['model' => $this]));
 
 		if (!empty($this->email))
 			$message->setReplyTo($this->email);
