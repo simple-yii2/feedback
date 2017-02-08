@@ -86,7 +86,12 @@ class FeedbackForm extends Model
 
 		$view = dirname(dirname(__DIR__)) . '/mail/feedback.php';
 
+		$from = $this->email;
+		if (Yii::$app->mailer->transport instanceof \Swift_SmtpTransport)
+			$from = Yii::$app->mailer->transport->getUsername();
+
 		$message = Yii::$app->mailer->compose()
+			->setFrom($from)
 			->setTo($this->_object->email)
 			->setSubject(Yii::t('feedback', 'New message'))
 			->setHtmlBody(Yii::$app->getView()->renderFile($view, ['model' => $this]));
