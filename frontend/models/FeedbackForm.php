@@ -72,13 +72,17 @@ class FeedbackForm extends Model
 	public function rules()
 	{
 		return [
-			[['name', 'message'], 'required'],
-			['phone', 'string'],
+			[['name', 'phone', 'message'], 'string'],
 			['email', 'email'],
 			['verificationCode', 'captcha'],
+			[['name', 'message', 'verificationCode'], 'required'],
 		];
 	}
 
+	/**
+	 * Sending the message
+	 * @return bool
+	 */
 	public function feedback()
 	{
 		if (!$this->validate())
