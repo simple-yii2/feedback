@@ -75,6 +75,8 @@ class Feedback extends Widget
 			$model->email = $user->email;
 		}
 
+		$model->setAttributes(Yii::$app->getSession()->getFlash('feedback'));
+
 		$model->load(Yii::$app->getRequest()->get());
 
 		$this->_model = $model;
