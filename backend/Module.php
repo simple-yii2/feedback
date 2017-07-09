@@ -32,7 +32,7 @@ class Module extends BackendModule {
 	/**
 	 * @inheritdoc
 	 */
-	protected static function cmsMenu($base)
+	protected function cmsMenu($base)
 	{
 		if (!Yii::$app->user->can('Feedback'))
 			return [];
