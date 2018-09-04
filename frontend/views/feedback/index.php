@@ -1,8 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-
-use cms\feedback\frontend\widgets\Feedback;
+use cms\feedback\frontend\widgets\FeedbackWidget;
 
 $title = Yii::t('feedback', 'Feedback');
 
@@ -13,6 +12,6 @@ Yii::$app->params['breadcrumbs'] = [$title];
 ?>
 <h1><?= Html::encode($title) ?></h1>
 
-<?= Feedback::widget([
-	'layout' => 'horizontal',
+<?= FeedbackWidget::widget([
+    'layout' => 'horizontal',
 ]) ?>

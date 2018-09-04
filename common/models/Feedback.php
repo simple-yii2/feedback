@@ -7,12 +7,12 @@ use yii\db\ActiveRecord;
 class Feedback extends ActiveRecord
 {
 
-	/**
-	 * @inheritdoc
-	 */
-	public static function tableName()
-	{
-		return 'Feedback';
-	}
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'feedback';
+    }
 
 }
