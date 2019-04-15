@@ -106,6 +106,10 @@ class FeedbackWidget extends Widget
         $model = $this->_model;
         $app = Yii::$app;
 
+        if ($model === null) {
+            return;
+        }
+
         if ($model->load($app->getRequest()->post()) && $model->feedback()) {
             $app->getSession()->setFlash('success', Yii::t('feedback', 'Your message was successfully sent.'));
 
